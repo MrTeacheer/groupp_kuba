@@ -1,15 +1,13 @@
-from decouple import config
-from aiogram import Bot,Dispatcher,executor,types
+from aiogram import executor,types
+from config import dp
+from handlers import commands,quiz,game
 
 
-token = config('TOKEN')
-bot = Bot(token=token)
-dp= Dispatcher(bot=bot)
 
+commands.register_commands(dp)
+quiz.register_handler_quiz(dp)
+game.register_game(dp)
 
-@dp.message_handler(commands=['start'])
-async def start(message: types.Message):
-    await message.answer(f'hello {message.from_user.first_name}')
 
 
 if __name__ == '__main__':
