@@ -1,12 +1,13 @@
 from aiogram import executor,types
 from config import dp
-from handlers import commands,quiz,game
+from handlers import commands,quiz,game,store
 
 
 
 commands.register_commands(dp)
 quiz.register_handler_quiz(dp)
 game.register_game(dp)
+store.register_store(dp)
 
 
 
